@@ -15,11 +15,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        \App\Models\User::create(['name' => 'SUPER ADMIN', 'username' => 'admin', 'password' => bcrypt('123'), 'role' => 'admin']);
+        foreach (['Hanya Terlambat','Rambut','Baju','Celana','Make Up','Sepatu'] as $p){ \App\Models\Pelanggaran::create(['nama' => $p]); }
+        $kelas = \App\Models\Kelas::create(['nama_kelas' => 'X-1']);
+        $kelas->siswa()->createMany([['nama' => 'Contoh Siswa 1'], ['nama' => 'Contoh Siswa 2']]);
     }
 }

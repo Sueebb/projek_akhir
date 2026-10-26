@@ -22,10 +22,12 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
+    protected $fillable = ['name', 'username', 'password', 'role'];
+    protected $hidden = ['password', 'remember_token'];
+    public function kehadiran(){ return $this->hasMany(KehadiranGuru::class); }
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
     }
