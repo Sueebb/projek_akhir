@@ -1,0 +1,82 @@
+/* Tema resmi SMA Negeri 9 Makassar: warna diambil dari logo sekolah */
+:root {
+    --brown: #6e4e42;
+    --brown-deep: #3a2119;
+    --gold: #e8a90c;
+    --cream: #fbf6ea;
+    --line: #eadfc4;
+}
+
+body { font-family: "Public Sans", system-ui, sans-serif; }
+
+#portalScreen { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+.sch-wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.25rem; }
+
+/* Bilah atas & header */
+.sch-topbar { background: var(--brown-deep); color: #f4dc8e; font-size: .75rem; padding: .5rem 0; }
+.sch-header { position: sticky; top: 0; z-index: 20; background: #fff; border-bottom: 3px solid var(--gold); padding: .75rem 0; }
+.sch-nav a { color: var(--brown); font-weight: 600; font-size: .875rem; padding: .35rem 0; border-bottom: 2px solid transparent; }
+.sch-nav a:hover { border-color: var(--gold); }
+
+/* Hero */
+.sch-hero { background: var(--cream); border-bottom: 1px solid var(--line); padding: 4rem 0; }
+.sch-title { font-family: "Source Serif 4", Georgia, serif; font-weight: 700; color: var(--brown-deep); line-height: 1.15; }
+.sch-clock { background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--gold); border-radius: .5rem; padding: 1.5rem; text-align: center; }
+.sch-clock time { display: block; font-family: ui-monospace, monospace; font-size: 2rem; font-weight: 800; color: var(--brown-deep); letter-spacing: .08em; }
+.sch-status { display: inline-block; margin-top: .5rem; padding: .2rem .75rem; border-radius: 999px; font-size: .75rem; font-weight: 700; }
+.sch-status.is-ok { background: #d1fae5; color: #065f46; }
+.sch-status.is-late { background: #ffe4e6; color: #9f1239; }
+
+/* Tombol */
+.sch-btn { display: inline-flex; align-items: center; gap: .5rem; padding: .75rem 1.25rem; border-radius: .375rem; font-weight: 700; font-size: .875rem; border: 2px solid var(--brown); transition: background-color .2s, color .2s; }
+.sch-btn-primary { background: var(--brown); color: #fff; }
+.sch-btn-primary:hover { background: var(--brown-deep); border-color: var(--brown-deep); }
+.sch-btn-outline { background: transparent; color: var(--brown); }
+.sch-btn-outline:hover { background: var(--brown); color: #fff; }
+
+/* Bagian halaman */
+.sch-section { padding: 4rem 0; }
+.sch-section.alt { background: var(--cream); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.sch-h2 { font-family: "Source Serif 4", Georgia, serif; font-size: 1.75rem; font-weight: 700; color: var(--brown-deep); margin-bottom: .5rem; }
+.sch-lead { color: #57534e; max-width: 40rem; margin-bottom: 2rem; }
+
+/* Kartu layanan */
+.sch-service { display: flex; flex-direction: column; text-align: left; background: #fff; border: 1px solid var(--line); border-left: 5px solid var(--gold); border-radius: .5rem; padding: 1.5rem; transition: box-shadow .2s; }
+.sch-service:hover { box-shadow: 0 8px 20px rgba(58, 33, 25, .12); }
+.sch-service i.ico { font-size: 1.5rem; color: var(--brown); margin-bottom: 1rem; }
+.sch-service h3 { font-weight: 800; color: var(--brown-deep); margin-bottom: .35rem; }
+.sch-service p { font-size: .875rem; color: #57534e; flex: 1; }
+.sch-service span.go { margin-top: 1rem; font-size: .8125rem; font-weight: 700; color: var(--brown); }
+
+/* Alur piket (urutan langkah) */
+.sch-steps { counter-reset: langkah; display: grid; gap: 1.25rem; }
+@media (min-width: 768px) { .sch-steps { grid-template-columns: repeat(4, 1fr); } }
+.sch-steps li { counter-increment: langkah; position: relative; padding-top: 3.25rem; }
+.sch-steps li::before { content: counter(langkah); position: absolute; top: 0; left: 0; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--brown); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+.sch-steps h3 { font-weight: 800; color: var(--brown-deep); margin-bottom: .25rem; }
+.sch-steps p { font-size: .875rem; color: #57534e; }
+
+/* Ketentuan */
+.sch-rules dt { font-weight: 800; color: var(--brown-deep); }
+.sch-rules dd { color: #57534e; font-size: .9375rem; margin: .15rem 0 1.25rem; }
+
+/* Footer */
+.sch-footer { background: var(--brown-deep); color: #e7d9b8; padding: 2.5rem 0 1.5rem; font-size: .875rem; }
+.sch-footer li { display: flex; gap: .6rem; margin-bottom: .4rem; }
+.sch-footer li i { color: var(--gold); margin-top: .2rem; }
+
+/* Aksesibilitas */
+.sch-btn:focus-visible, .sch-service:focus-visible, .sch-nav a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+    #portalScreen { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+}
+
+/* Layar QR mengikuti warna logo */
+.qr-screen { background: var(--gold); }
+.qr-ink { color: var(--brown-deep); }
+.qr-close { background: rgba(58, 33, 25, .12); color: var(--brown-deep); }
+.qr-card { border: 6px solid var(--brown); }
+.qr-logo { width: 22%; height: 22%; background: #fff; border-radius: 50%; padding: 4px; box-shadow: 0 0 0 3px #fff; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
